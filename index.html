@@ -15,13 +15,14 @@
     </div>
   </div>
   <div class="tabs">
-    <ul>
-      <li class="tab active">Games</li>
-      <li class="tab">Tools</li>
-      <li class="tab">Mods</li>
-      <li class="tab">Entertainment</li>
-      <li class="tab">Education</li>
-    </ul>
+    <div class="tabs-slider">
+      <div class="tab" onclick="changeTab(this)">Games</div>
+      <div class="tab" onclick="changeTab(this)">Tools</div>
+      <div class="tab" onclick="changeTab(this)">Mods</div>
+      <div class="tab" onclick="changeTab(this)">Entertainment</div>
+      <div class="tab" onclick="changeTab(this)">Education</div>
+    </div>
+    <div class="tabs-indicator"></div>
   </div>
   <div class="main">
     <div class="app-section">
@@ -50,5 +51,7 @@
       </div>
     </div>
   </div>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
