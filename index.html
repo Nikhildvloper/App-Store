@@ -17,37 +17,18 @@
   
   <div class="main">
     <div class="app-section">
-      <h2>Top Apps</h2>
-      <div class="app-grid">
-        <div class="app-card">
-          <img src="https://via.placeholder.com/100" alt="App 1">
-          <h3>App 1</h3>
-          <p>A great app</p>
-        </div>
-        <div class="app-card">
-          <img src="https://via.placeholder.com/100" alt="App 2">
-          <h3>App 2</h3>
-          <p>Another cool app</p>
-        </div>
-        <div class="app-card">
-          <img src="https://via.placeholder.com/100" alt="App 3">
-          <h3>App 3</h3>
-          <p>An awesome app</p>
-        </div>
-        <div class="app-card">
-          <img src="https://via.placeholder.com/100" alt="App 4">
-          <h3>App 4</h3>
-          <p>Yet another app</p>
-        </div>
+      <h2 id="section-title">Top Games</h2>
+      <div id="app-grid" class="app-grid">
+        <!-- App cards will be dynamically inserted here -->
       </div>
     </div>
   </div>
 
   <!-- Bottom Navigation Tabs -->
   <div class="bottom-nav">
-    <div class="nav-item" onclick="changeTab('games')">Games</div>
-    <div class="nav-item" onclick="changeTab('apps')">Apps</div>
-    <div class="nav-item" onclick="changeTab('movies')">Movies</div>
+    <div class="nav-item active" data-tab="games" onclick="changeTab('games')">Games</div>
+    <div class="nav-item" data-tab="apps" onclick="changeTab('apps')">Apps</div>
+    <div class="nav-item" data-tab="movies" onclick="changeTab('movies')">Movies</div>
   </div>
 
   <script src="scripts.js"></script>
