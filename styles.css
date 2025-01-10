@@ -12,7 +12,6 @@ body {
   background-color: #3e8ef7;
   padding: 10px 15px;
   color: white;
-  position: relative;
 }
 
 .logo {
@@ -25,10 +24,10 @@ body {
   display: flex;
   align-items: center;
   background-color: white;
-  border-radius: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  width: 200px; /* Fixed width for default */
+  border-radius: 50px; /* Fully rounded for Play Store-like design */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for floating appearance */
+  padding: 5px 10px;
+  width: 250px; /* Adjusted width for better usability */
   max-width: 80%; /* Responsive width */
   height: 40px; /* Consistent height */
   box-sizing: border-box;
@@ -41,7 +40,13 @@ body {
   font-size: 14px;
   padding: 5px 10px;
   color: #333;
-  border-radius: 25px; /* Matches the container shape */
+  background-color: transparent; /* No background */
+  border-radius: 50px; /* Matches the container */
+}
+
+.search-input:focus {
+  outline: none; /* Removes the default focus border */
+  box-shadow: 0 0 5px rgba(62, 142, 247, 0.5); /* Subtle blue highlight */
 }
 
 .search-button {
