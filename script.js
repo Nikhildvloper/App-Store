@@ -1,62 +1,60 @@
-// Load JSON data from <script> tags
-function loadJSON(fileName) {
-  const scriptTag = document.querySelector(`script[src="${fileName}"]`);
-  return scriptTag ? JSON.parse(scriptTag.textContent) : [];
-}
-
-// JSON data for tabs (loaded from JSON files)
-const data = {
-  games: loadJSON("games.json"),
-  apps: loadJSON("apps.json"),
-  movies: loadJSON("movies.json")
-};
-
-// Load the apps dynamically based on the selected tab
-function loadApps(tabName) {
-  const appGrid = document.getElementById("app-grid");
+// Load apps dynamically based on the selected tab
+function loadApps(category) {
   const sectionTitle = document.getElementById("section-title");
+  const appGrid = document.getElementById("app-grid");
 
-  // Update the section title
-  sectionTitle.textContent = tabName.charAt(0).toUpperCase() + tabName.slice(1);
+  // Set the title based on the selected category
+  sectionTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
 
-  // Clear the existing apps
+  // Clear the current apps
   appGrid.innerHTML = "";
 
-  // Get the data for the selected tab
-  const apps = data[tabName];
-  if (!apps || apps.length === 0) {
-    appGrid.innerHTML = `<p>No data available for ${tabName}.</p>`;
-    return;
-  }
+  // Fetch the appropriate JSON file
+  fetch(`${category}.json`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to load ${category}.json`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Display apps
+      data.forEach(app => {
+        const appCard = document.createElement("div");
+        appCard.className = "app-card";
 
-  // Populate the grid with apps
-  apps.forEach((app) => {
-    const appCard = document.createElement("div");
-    appCard.className = "app-card";
-    appCard.innerHTML = `
-      <img src="${app.icon}" alt="${app.name}">
-      <h3>${app.name}</h3>
-      <p>${app.description}</p>
-    `;
-    appGrid.appendChild(appCard);
-  });
+        appCard.innerHTML = `
+          <img src="${app.image}" alt="${app.name}">
+          <h3>${app.name}</h3>
+          <p>${app.description}</p>
+        `;
+
+        appGrid.appendChild(appCard);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading apps:", error);
+      appGrid.innerHTML = "<p>Failed to load apps. Please try again later.</p>";
+    });
 }
 
-// Handle tab changes
+// Handle tab change
 function changeTab(tabName) {
-  const navItems = document.querySelectorAll(".nav-item");
-  navItems.forEach((item) => item.classList.remove("active"));
+  // Remove active class from all buttons
+  const buttons = document.querySelectorAll(".nav-button");
+  buttons.forEach(button => button.classList.remove("active"));
 
-  const activeTab = Array.from(navItems).find(
-    (item) => item.textContent.toLowerCase() === tabName
+  // Add active class to the clicked button
+  const activeButton = Array.from(buttons).find(button =>
+    button.textContent.trim().toLowerCase().includes(tabName)
   );
-  if (activeTab) activeTab.classList.add("active");
+  activeButton.classList.add("active");
 
   // Load apps for the selected tab
   loadApps(tabName);
 }
 
-// Load the default tab ("Games") on page load
+// Load the default tab (Games) on page load
 document.addEventListener("DOMContentLoaded", () => {
   loadApps("games");
 });
