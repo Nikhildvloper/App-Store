@@ -58,6 +58,39 @@ body {
   padding: 0 10px;
 }
 
+/* Tabs styles */
+.tabs {
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.tabs ul {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tabs .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #666;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tabs .tab:hover {
+  background-color: #f0f0f0;
+}
+
+.tabs .tab.active {
+  background-color: #3e8ef7;
+  color: white;
+}
+
 /* Main content styles */
 .main {
   padding: 20px;
