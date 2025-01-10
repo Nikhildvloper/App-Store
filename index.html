@@ -14,16 +14,7 @@
       <button class="search-button">🔍</button>
     </div>
   </div>
-  <div class="tabs">
-    <div class="tabs-slider">
-      <div class="tab" onclick="changeTab(this)">Games</div>
-      <div class="tab" onclick="changeTab(this)">Tools</div>
-      <div class="tab" onclick="changeTab(this)">Mods</div>
-      <div class="tab" onclick="changeTab(this)">Entertainment</div>
-      <div class="tab" onclick="changeTab(this)">Education</div>
-    </div>
-    <div class="tabs-indicator"></div>
-  </div>
+  
   <div class="main">
     <div class="app-section">
       <h2>Top Apps</h2>
@@ -50,6 +41,13 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Bottom Navigation Tabs -->
+  <div class="bottom-nav">
+    <div class="nav-item" onclick="changeTab('games')">Games</div>
+    <div class="nav-item" onclick="changeTab('apps')">Apps</div>
+    <div class="nav-item" onclick="changeTab('movies')">Movies</div>
   </div>
 
   <script src="scripts.js"></script>
