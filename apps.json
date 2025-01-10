@@ -1,12 +1,12 @@
 [
   {
     "name": "App 1",
-    "icon": "https://via.placeholder.com/100",
-    "description": "A useful app."
+    "description": "A productivity app.",
+    "image": "https://via.placeholder.com/100"
   },
   {
     "name": "App 2",
-    "icon": "https://via.placeholder.com/100",
-    "description": "A productivity app."
+    "description": "A social networking app.",
+    "image": "https://via.placeholder.com/100"
   }
 ]
