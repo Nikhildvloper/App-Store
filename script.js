@@ -1,35 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const appGrid = document.getElementById("app-grid");
+function changeTab(tab) {
+  const tabs = document.querySelectorAll('.tab');
+  const indicator = document.querySelector('.tabs-indicator');
+  
+  // Remove active class from all tabs
+  tabs.forEach(t => t.classList.remove('active'));
+  
+  // Add active class to the clicked tab
+  tab.classList.add('active');
+  
+  // Slide the indicator to the selected tab's position
+  const tabOffset = tab.offsetLeft;
+  indicator.style.transform = `translateX(${tabOffset}px)`;
+}
 
-  const apps = [
-    { name: "App 1", description: "A great app", img: "https://via.placeholder.com/100" },
-    { name: "App 2", description: "Another cool app", img: "https://via.placeholder.com/100" },
-    { name: "App 3", description: "An awesome app", img: "https://via.placeholder.com/100" },
-    { name: "App 4", description: "Yet another app", img: "https://via.placeholder.com/100" },
-  ];
-
-  function renderApps(appList) {
-    appGrid.innerHTML = "";
-    appList.forEach(app => {
-      const appCard = document.createElement("div");
-      appCard.classList.add("app-card");
-      appCard.innerHTML = `
-        <img src="${app.img}" alt="${app.name}">
-        <h3>${app.name}</h3>
-        <p>${app.description}</p>
-      `;
-      appGrid.appendChild(appCard);
-    });
-  }
-
-  const searchInput = document.getElementById("search-input");
-  const searchBtn = document.getElementById("search-btn");
-
-  searchBtn.addEventListener("click", () => {
-    const query = searchInput.value.toLowerCase();
-    const filteredApps = apps.filter(app => app.name.toLowerCase().includes(query));
-    renderApps(filteredApps);
-  });
-
-  renderApps(apps);
-});
+// Initialize the first tab as active
+document.querySelector('.tab').classList.add('active');
+changeTab(document.querySelector('.tab')); // Set the initial indicator position
