@@ -17,18 +17,18 @@
   
   <div class="main">
     <div class="app-section">
-      <h2 id="section-title">Top Games</h2>
-      <div id="app-grid" class="app-grid">
-        <!-- App cards will be dynamically inserted here -->
+      <h2 id="section-title">Games</h2>
+      <div class="app-grid" id="app-grid">
+        <!-- Apps will be loaded here dynamically -->
       </div>
     </div>
   </div>
 
   <!-- Bottom Navigation Tabs -->
   <div class="bottom-nav">
-    <div class="nav-item active" data-tab="games" onclick="changeTab('games')">Games</div>
-    <div class="nav-item" data-tab="apps" onclick="changeTab('apps')">Apps</div>
-    <div class="nav-item" data-tab="movies" onclick="changeTab('movies')">Movies</div>
+    <div class="nav-item active" onclick="changeTab('games')">Games</div>
+    <div class="nav-item" onclick="changeTab('apps')">Apps</div>
+    <div class="nav-item" onclick="changeTab('movies')">Movies</div>
   </div>
 
   <script src="scripts.js"></script>
