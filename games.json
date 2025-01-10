@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Game 1",
+    "icon": "https://via.placeholder.com/100",
+    "description": "An exciting game."
+  },
+  {
+    "name": "Game 2",
+    "icon": "https://via.placeholder.com/100",
+    "description": "Another fun game."
+  }
+]
