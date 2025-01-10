@@ -140,32 +140,3 @@ body {
   font-weight: bold;
   transform: scale(1.1);
 }
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .app-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-}
-
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.2em;
-  }
-
-  .search-container {
-    width: 90%;
-  }
-
-  .nav-icon {
-    font-size: 18px;
-  }
-
-  .nav-label {
-    font-size: 10px;
-  }
-
-  .nav-button {
-    font-size: 10px;
-  }
-}
