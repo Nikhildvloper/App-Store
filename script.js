@@ -1,18 +1,12 @@
-function changeTab(tab) {
-  const tabs = document.querySelectorAll('.tab');
-  const indicator = document.querySelector('.tabs-indicator');
-  
-  // Remove active class from all tabs
-  tabs.forEach(t => t.classList.remove('active'));
-  
-  // Add active class to the clicked tab
-  tab.classList.add('active');
-  
-  // Slide the indicator to the selected tab's position
-  const tabOffset = tab.offsetLeft;
-  indicator.style.transform = `translateX(${tabOffset}px)`;
+function changeTab(tabName) {
+  // Get all nav items and remove the "active" class
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => item.classList.remove('active'));
+
+  // Add the "active" class to the selected tab
+  const activeTab = document.querySelector(`.nav-item:contains(${tabName})`);
+  activeTab.classList.add('active');
 }
 
-// Initialize the first tab as active
-document.querySelector('.tab').classList.add('active');
-changeTab(document.querySelector('.tab')); // Set the initial indicator position
+// Set the default active tab (optional)
+document.querySelector('.nav-item').classList.add('active');
