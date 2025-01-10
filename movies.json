@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Movie 1",
+    "icon": "https://via.placeholder.com/100",
+    "description": "An action-packed movie."
+  },
+  {
+    "name": "Movie 2",
+    "icon": "https://via.placeholder.com/100",
+    "description": "A heartwarming drama."
+  }
+]
