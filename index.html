@@ -7,21 +7,39 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
+  <div class="header">
     <div class="logo">App Store</div>
-    <div class="search-box">
-      <button id="search-btn">🔍</button>
-      <input type="text" id="search-input" placeholder="Search">
+    <div class="search-container">
+      <input type="text" placeholder="Search" class="search-input" />
+      <button class="search-button">🔍</button>
     </div>
-  </header>
-  <main class="main">
-    <section class="app-section">
+  </div>
+  <div class="main">
+    <div class="app-section">
       <h2>Top Apps</h2>
-      <div class="app-grid" id="app-grid">
-        <!-- Apps will be displayed here -->
+      <div class="app-grid">
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 1">
+          <h3>App 1</h3>
+          <p>A great app</p>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 2">
+          <h3>App 2</h3>
+          <p>Another cool app</p>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 3">
+          <h3>App 3</h3>
+          <p>An awesome app</p>
+        </div>
+        <div class="app-card">
+          <img src="https://via.placeholder.com/100" alt="App 4">
+          <h3>App 4</h3>
+          <p>Yet another app</p>
+        </div>
       </div>
-    </section>
-  </main>
-  <script src="script.js"></script>
+    </div>
+  </div>
 </body>
 </html>
