@@ -17,20 +17,17 @@ body {
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  white-space: nowrap; /* Prevents wrapping */
 }
 
 .search-container {
   display: flex;
   align-items: center;
   background-color: white;
-  border-radius: 50px; /* Fully rounded for Play Store-like design */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for floating appearance */
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 5px 10px;
-  width: 250px; /* Adjusted width for better usability */
-  max-width: 80%; /* Responsive width */
-  height: 40px; /* Consistent height */
-  box-sizing: border-box;
+  width: 250px;
+  height: 40px;
 }
 
 .search-input {
@@ -40,13 +37,7 @@ body {
   font-size: 14px;
   padding: 5px 10px;
   color: #333;
-  background-color: transparent; /* No background */
-  border-radius: 50px; /* Matches the container */
-}
-
-.search-input:focus {
-  outline: none; /* Removes the default focus border */
-  box-shadow: 0 0 5px rgba(62, 142, 247, 0.5); /* Subtle blue highlight */
+  background-color: transparent;
 }
 
 .search-button {
@@ -61,7 +52,6 @@ body {
 /* Main content styles */
 .main {
   padding: 20px;
-  margin-top: 10px; /* Adds spacing between header and content */
 }
 
 .app-section h2 {
@@ -102,48 +92,44 @@ body {
   color: #666;
 }
 
-/* Bottom navigation styles */
+/* Bottom Navigation */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  left: 0;
+  right: 0;
+  height: 60px;
 }
 
-.nav-item {
-  padding: 15px;
-  text-align: center;
+.nav-button {
   flex: 1;
-  cursor: pointer;
-  font-size: 1.1em;
+  text-align: center;
+  border: none;
+  background: none;
+  font-size: 14px;
   color: #666;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 10px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
 }
 
-.nav-item:hover {
-  background-color: #f0f0f0;
+.nav-button:hover {
+  color: #3e8ef7;
 }
 
-.nav-item.active {
-  background-color: #3e8ef7;
-  color: white;
+.nav-button.active {
+  color: #3e8ef7;
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .header {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .search-container {
-    width: 90%; /* Full width for smaller screens */
-    margin-top: 10px;
-  }
-
   .app-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
@@ -155,14 +141,10 @@ body {
   }
 
   .search-container {
-    width: 90%; /* Smallest width for mobile */
+    width: 90%;
   }
 
-  .search-button {
-    font-size: 14px;
-  }
-
-  .app-grid {
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  .nav-button {
+    font-size: 12px;
   }
 }
