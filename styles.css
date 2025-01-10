@@ -11,13 +11,14 @@ body {
   background-color: #3e8ef7;
   padding: 10px 15px;
   color: white;
-  position: relative;
-  z-index: 1;
+  position: relative; /* Creates a new stacking context */
+  z-index: 1; /* Ensure the header background stacks below the search box */
 }
 
 .logo {
   font-size: 1.5em;
   font-weight: bold;
+  white-space: nowrap; /* Prevents wrapping on smaller devices */
 }
 
 .search-box {
@@ -25,12 +26,12 @@ body {
   align-items: center;
   background-color: white;
   border-radius: 20px;
-  padding: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 250px; /* Adjusted width */
-  height: 36px; /* Slightly increased height */
-  position: relative;
-  z-index: 2;
+  padding: 4px 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds smooth shadow for Play Store-like look */
+  width: 250px; /* Adjust width */
+  height: 36px; /* Consistent height for all devices */
+  position: relative; /* Ensures it stays within header */
+  z-index: 2; /* Stacks above the header background */
 }
 
 .search-box button {
@@ -38,7 +39,7 @@ body {
   border: none;
   font-size: 16px;
   color: #666;
-  margin-left: 8px;
+  margin-left: 5px;
   cursor: pointer;
 }
 
