@@ -60,18 +60,16 @@ body {
 
 /* Tabs styles */
 .tabs {
+  position: relative;
   background-color: #fff;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   margin-top: 10px;
 }
 
-.tabs ul {
+.tabs-slider {
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  margin: 0;
-  list-style: none;
+  justify-content: space-around;
 }
 
 .tabs .tab {
@@ -80,6 +78,7 @@ body {
   font-size: 1.1em;
   color: #666;
   transition: background-color 0.3s, color 0.3s;
+  user-select: none;
 }
 
 .tabs .tab:hover {
@@ -89,6 +88,16 @@ body {
 .tabs .tab.active {
   background-color: #3e8ef7;
   color: white;
+}
+
+.tabs-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px; /* Width of the active tab */
+  height: 4px;
+  background-color: #3e8ef7;
+  transition: transform 0.3s ease;
 }
 
 /* Main content styles */
