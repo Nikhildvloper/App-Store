@@ -1,12 +1,12 @@
 [
   {
     "name": "Game 1",
-    "icon": "https://via.placeholder.com/100",
-    "description": "An exciting game."
+    "description": "An exciting adventure game.",
+    "image": "https://via.placeholder.com/100"
   },
   {
     "name": "Game 2",
-    "icon": "https://via.placeholder.com/100",
-    "description": "Another fun game."
+    "description": "A fun puzzle game.",
+    "image": "https://via.placeholder.com/100"
   }
 ]
