@@ -11,6 +11,8 @@ body {
   background-color: #3e8ef7;
   padding: 10px 15px;
   color: white;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
@@ -25,8 +27,10 @@ body {
   border-radius: 20px;
   padding: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 180px;
-  height: 32px;
+  width: 250px; /* Adjusted width */
+  height: 36px; /* Slightly increased height */
+  position: relative;
+  z-index: 2;
 }
 
 .search-box button {
@@ -34,7 +38,7 @@ body {
   border: none;
   font-size: 16px;
   color: #666;
-  margin-left: 5px;
+  margin-left: 8px;
   cursor: pointer;
 }
 
@@ -49,6 +53,7 @@ body {
 
 .main {
   padding: 20px;
+  margin-top: 10px; /* Adds spacing between header and content */
 }
 
 .app-section h2 {
@@ -98,7 +103,7 @@ body {
 
   .search-box {
     margin-top: 10px;
-    width: 160px;
+    width: 220px; /* Adjust for smaller screens */
   }
 
   .app-grid {
@@ -112,7 +117,7 @@ body {
   }
 
   .search-box {
-    width: 140px;
+    width: 200px; /* Further reduce width for mobile */
   }
 
   .search-box button {
