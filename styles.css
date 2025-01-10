@@ -1,3 +1,4 @@
+/* General styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -11,47 +12,48 @@ body {
   background-color: #3e8ef7;
   padding: 10px 15px;
   color: white;
-  position: relative; /* Creates a new stacking context */
-  z-index: 1; /* Ensure the header background stacks below the search box */
+  position: relative;
 }
 
 .logo {
   font-size: 1.5em;
   font-weight: bold;
-  white-space: nowrap; /* Prevents wrapping on smaller devices */
+  white-space: nowrap; /* Prevents wrapping */
 }
 
-.search-box {
+.search-container {
   display: flex;
   align-items: center;
   background-color: white;
-  border-radius: 20px;
-  padding: 4px 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds smooth shadow for Play Store-like look */
-  width: 250px; /* Adjust width */
-  height: 36px; /* Consistent height for all devices */
-  position: relative; /* Ensures it stays within header */
-  z-index: 2; /* Stacks above the header background */
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  width: 200px; /* Fixed width for default */
+  max-width: 80%; /* Responsive width */
+  height: 40px; /* Consistent height */
+  box-sizing: border-box;
 }
 
-.search-box button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: #666;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-.search-box input {
+.search-input {
   border: none;
   outline: none;
-  flex-grow: 1;
+  flex: 1;
   font-size: 14px;
+  padding: 5px 10px;
   color: #333;
+  border-radius: 25px; /* Matches the container shape */
+}
+
+.search-button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
   padding: 0 10px;
 }
 
+/* Main content styles */
 .main {
   padding: 20px;
   margin-top: 10px; /* Adds spacing between header and content */
@@ -95,16 +97,16 @@ body {
   color: #666;
 }
 
-/* Responsive Design */
+/* Responsive styles */
 @media (max-width: 768px) {
   .header {
     flex-wrap: wrap;
     justify-content: center;
   }
 
-  .search-box {
+  .search-container {
+    width: 90%; /* Full width for smaller screens */
     margin-top: 10px;
-    width: 220px; /* Adjust for smaller screens */
   }
 
   .app-grid {
@@ -117,11 +119,11 @@ body {
     font-size: 1.2em;
   }
 
-  .search-box {
-    width: 200px; /* Further reduce width for mobile */
+  .search-container {
+    width: 90%; /* Smallest width for mobile */
   }
 
-  .search-box button {
+  .search-button {
     font-size: 14px;
   }
 
