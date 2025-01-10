@@ -1,12 +1,12 @@
 [
   {
     "name": "Movie 1",
-    "icon": "https://via.placeholder.com/100",
-    "description": "An action-packed movie."
+    "description": "A thrilling action movie.",
+    "image": "https://via.placeholder.com/100"
   },
   {
     "name": "Movie 2",
-    "icon": "https://via.placeholder.com/100",
-    "description": "A heartwarming drama."
+    "description": "A heartwarming drama movie.",
+    "image": "https://via.placeholder.com/100"
   }
 ]
