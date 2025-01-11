@@ -1,142 +1,172 @@
-/* General styles */
+/* General Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #131313;
+  color: #ffffff;
+  overflow-y: scroll;
 }
 
+/* Header */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #3e8ef7;
-  padding: 10px 15px;
-  color: white;
-}
-
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  background-color: white;
-  border-radius: 50px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  width: 250px;
-  height: 40px;
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  flex: 1;
-  font-size: 14px;
-  padding: 5px 10px;
-  color: #333;
-  background-color: transparent;
-}
-
-.search-button {
-  background: none;
-  border: none;
-  color: #666;
-  font-size: 16px;
-  cursor: pointer;
-  padding: 0 10px;
-}
-
-/* Main content styles */
-.main {
   padding: 20px;
+  text-align: left;
+  background-color: #1b1b1b;
 }
 
-.app-section h2 {
-  color: #333;
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.tabs {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+  color: #6c6c6c;
+}
+
+.tabs span {
+  cursor: pointer;
+}
+
+.tabs span:hover {
+  color: #ffffff;
+}
+
+/* Sections */
+.section {
+  margin: 20px;
+}
+
+.section h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+/* Scrollable container for horizontal scrolling */
+.scrollable-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  padding-bottom: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Edge, and Safari */
+}
+
+.app {
   text-align: center;
-}
-
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.app-card {
-  background: white;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.app-card img {
+  flex: 0 0 auto; /* Prevent apps from shrinking */
   width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 10px;
 }
 
-.app-card h3 {
-  font-size: 1em;
-  color: #333;
+.app p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #cfcfcf;
 }
 
-.app-card p {
-  font-size: 0.9em;
-  color: #666;
+/* App Icons */
+.icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.snapchat {
+  background-color: #fffc00;
+}
+
+.hotstar {
+  background-color: #000080;
+}
+
+.zomato {
+  background-color: #ff0033;
+}
+
+.messenger {
+  background-color: #0084ff;
+}
+
+.instagram {
+  background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5);
+}
+
+.facebook {
+  background-color: #1877f2;
+}
+
+.phonepe {
+  background-color: #6f3ef4;
+}
+
+.meesho {
+  background-color: #ff5d93;
+}
+
+.remini {
+  background-color: #ff0000;
+}
+
+.facebook-lite {
+  background-color: #0080ff;
+}
+
+.sharechat {
+  background-color: #ffcc00;
+}
+
+.x {
+  background-color: #000000;
 }
 
 /* Bottom Navigation */
-.bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #ffffff;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+.bottom-navigation {
   position: fixed;
-  bottom: 15px; /* Slightly above the bottom */
-  left: 10px; /* Added padding from the left */
-  right: 10px; /* Added padding from the right */
-  height: 70px; /* Taller navigation bar */
-  border-radius: 15px; /* Rounded corners */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1b1b1b;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   padding: 10px 0;
+  border-top: 1px solid #333;
 }
 
-.nav-button {
-  flex: 1;
+.nav-item {
   text-align: center;
-  border: none;
-  background: none;
+  color: #cfcfcf;
   font-size: 12px;
-  color: #666;
-  cursor: pointer;
-  transition: color 0.3s, transform 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.nav-item:hover {
+  color: #ffffff;
 }
 
 .nav-icon {
-  font-size: 20px;
-  margin-bottom: 5px;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto 5px;
 }
 
-.nav-label {
-  font-size: 12px;
+.apps {
+  background-color: #ff9800;
+  border-radius: 50%;
 }
 
-.nav-button:hover {
-  color: #3e8ef7;
+.games {
+  background-color: #4caf50;
+  border-radius: 50%;
 }
 
-.nav-button.active {
-  color: #3e8ef7;
-  font-weight: bold;
-  transform: scale(1.1);
+.updates {
+  background-color: #2196f3;
+  border-radius: 50%;
 }
