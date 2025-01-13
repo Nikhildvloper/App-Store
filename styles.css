@@ -73,6 +73,17 @@ body {
   display: none; /* Hide scrollbar for Chrome, Edge, and Safari */
 }
 
+.app {
+  text-align: center;
+  flex: 0 0 auto; /* Prevent apps from shrinking */
+  width: 80px;
+}
+
+.app p {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #cfcfcf;
+}
 /* App Icons (Images) */
 .app-icon {
   width: 60px;
