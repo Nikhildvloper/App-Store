@@ -117,7 +117,13 @@ function loadAppsFromSection(section) {
     })
     .then(data => renderAppSections(data.sections))
     .catch(error => console.error('Error:', error));
-}
+  }
+});
+// Focus on the search bar when clicked
+document.getElementById('search-bar').addEventListener('click', function() {
+  this.focus(); // Focus the input when it's clicked
+});
+
 // Search functionality: Store the search term and redirect to search page
 document.getElementById('search-bar').addEventListener('keydown', function(event) {
   // When 'Enter' is pressed
