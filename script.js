@@ -32,7 +32,7 @@ function renderAppSections(sections) {
 
       // Add app icon (from icons directory)
       const img = document.createElement('img');
-      img.src = `icon/${app.name.toLowerCase().replace(/ /g, '-')}.png`;
+      img.src = `icon/${app.name}.png`;  // Directly using app name from JSON
       img.alt = `${app.name} icon`;
       img.classList.add('app-icon');
 
