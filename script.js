@@ -1,19 +1,18 @@
-// Function to fetch and render apps dynamically from JSON files
-function fetchAndRenderApps(section) {
-  const jsonFile = `./${section}.json`; // Use the selected section's JSON file
-  fetch(jsonFile)
-    .then(response => {
-      if (!response.ok) throw new Error(`Failed to load ${section}.json`);
-      return response.json();
-    })
-    .then(data => renderAppSections(data.sections))
-    .catch(error => console.error('Error:', error));
-}
+// Fetch and render apps from the selected section's JSON file
+fetch('./apps.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Failed to load apps.json');
+    return response.json();
+  })
+  .then(data => renderAppSections(data.sections))
+  .catch(error => console.error('Error:', error));
 
 // Render app sections dynamically
 function renderAppSections(sections) {
   const appSections = document.getElementById('app-sections');
-  appSections.innerHTML = ''; // Clear existing apps before rendering
+
+  // Clear existing sections before rendering new ones
+  appSections.innerHTML = '';
 
   sections.forEach(section => {
     // Create section container
@@ -36,18 +35,18 @@ function renderAppSections(sections) {
 
       // Add app icon (from icons directory)
       const img = document.createElement('img');
-      img.src = `icon/${app.name}.png`;
+      img.src = `icon/${app.name}.png`; // Directly using app name from JSON
       img.alt = `${app.name} icon`;
       img.classList.add('app-icon');
-      img.addEventListener('click', () => openAppPage(app.name));
+      img.addEventListener('click', () => openAppPage(app.name)); // Add click event to icon
 
       // Add app name
       const appName = document.createElement('p');
       appName.textContent = app.name;
-      appName.addEventListener('click', () => openAppPage(app.name));
+      appName.addEventListener('click', () => openAppPage(app.name)); // Add click event to app name
 
       // Add click event to the app border
-      appDiv.addEventListener('click', () => openAppPage(app.name));
+      appDiv.addEventListener('click', () => openAppPage(app.name)); // Add click event to app div
 
       appDiv.appendChild(img);
       appDiv.appendChild(appName);
@@ -61,29 +60,45 @@ function renderAppSections(sections) {
 
 // Open app page function
 function openAppPage(appName) {
-  // Redirect to app page
+  // Redirect to app page in the apps folder
   window.location.href = `apps/${appName}.html`;
 }
 
 // Disable text selection and clicks triggering search popups
 document.addEventListener('mousedown', (event) => {
+  // Prevent triggering actions on text clicks
   if (event.detail > 0) {
     event.preventDefault();
   }
 });
 
 document.addEventListener('contextmenu', (event) => {
+  // Prevent right-click menu on text
   event.preventDefault();
 });
 
 // Set default active section to Apps and handle section selection
 window.addEventListener('DOMContentLoaded', () => {
-  // Set default section to "apps" and load its content
-  setActiveSection('apps-nav', 'apps');
+  // Set default active section as Apps
+  setActiveSection('apps-nav');
+
+  // Add event listeners to navigation items
+  document.getElementById('apps-nav').addEventListener('click', () => {
+    setActiveSection('apps-nav');
+    loadAppsFromSection('apps');
+  });
+  document.getElementById('games-nav').addEventListener('click', () => {
+    setActiveSection('games-nav');
+    loadAppsFromSection('games');
+  });
+  document.getElementById('tools-nav').addEventListener('click', () => {
+    setActiveSection('tools-nav');
+    loadAppsFromSection('tools');
+  });
 });
 
 // Function to set the active section
-function setActiveSection(sectionId, section) {
+function setActiveSection(sectionId) {
   // Remove active class from all sections
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(item => item.classList.remove('active'));
@@ -91,12 +106,15 @@ function setActiveSection(sectionId, section) {
   // Add active class to the clicked section
   const activeNavItem = document.getElementById(sectionId);
   activeNavItem.classList.add('active');
-
-  // Fetch and render apps for the selected section
-  fetchAndRenderApps(section);
 }
 
-// Add event listeners to navigation items
-document.getElementById('apps-nav').addEventListener('click', () => setActiveSection('apps-nav', 'apps'));
-document.getElementById('games-nav').addEventListener('click', () => setActiveSection('games-nav', 'games'));
-document.getElementById('updates-nav').addEventListener('click', () => setActiveSection('updates-nav', 'updates'));
+// Function to load apps from the corresponding JSON based on the selected section
+function loadAppsFromSection(section) {
+  fetch(`./${section}.json`)
+    .then(response => {
+      if (!response.ok) throw new Error(`Failed to load ${section}.json`);
+      return response.json();
+    })
+    .then(data => renderAppSections(data.sections))
+    .catch(error => console.error('Error:', error));
+}
