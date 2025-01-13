@@ -1,12 +1,3 @@
-// Fetch and render apps from the selected section's JSON file
-fetch('./apps.json')
-  .then(response => {
-    if (!response.ok) throw new Error('Failed to load apps.json');
-    return response.json();
-  })
-  .then(data => renderAppSections(data.sections))
-  .catch(error => console.error('Error:', error));
-
 // Render app sections dynamically
 function renderAppSections(sections) {
   const appSections = document.getElementById('app-sections');
@@ -117,8 +108,8 @@ function loadAppsFromSection(section) {
     })
     .then(data => renderAppSections(data.sections))
     .catch(error => console.error('Error:', error));
-  }
-});
+}
+
 // Focus on the search bar when clicked
 document.getElementById('search-bar').addEventListener('click', function() {
   this.focus(); // Focus the input when it's clicked
