@@ -100,14 +100,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
+  padding: 8px 12px;
+  width: 20%;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+  margin: 0 10px;
 }
 
-.nav-item:hover {
+/* Default icon size and length for all sections */
+.nav-item .nav-icon {
+  font-size: 28px;
+  transition: color 0.3s ease;
+}
+
+/* Active Section Styles */
+.nav-item.active {
+  background-color: #2196f3; /* Light blue highlight */
   color: #ffffff;
 }
 
-.nav-icon {
-  font-size: 24px;
-  color: #cfcfcf;
-  margin-bottom: 5px;
+.nav-item.active .nav-icon {
+  color: #ffffff;
 }
