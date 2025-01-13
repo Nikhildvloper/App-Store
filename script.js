@@ -118,13 +118,6 @@ function loadAppsFromSection(section) {
     .then(data => renderAppSections(data.sections))
     .catch(error => console.error('Error:', error));
 }
-// Retrieve search term from local storage
-const searchTerm = localStorage.getItem('searchTerm');
-
-// Display the search term
-document.getElementById('search-term').textContent = `You searched for: ${searchTerm}`;
-
-// You can now use this searchTerm to filter or display actual results dynamically
 // Focus on the search bar when clicked
 document.getElementById('search-bar').addEventListener('click', function() {
   this.focus(); // Focus the input when it's clicked
