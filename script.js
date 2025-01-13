@@ -1,60 +1,51 @@
-// Function to load apps from a given category (games, apps, movies)
-function loadApps(category) {
-  const sectionTitle = document.getElementById("section-title");
-  const appGrid = document.getElementById("app-grid");
+// Fetch and render apps from applications.json
+fetch('./applications.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Failed to load applications.json');
+    return response.json();
+  })
+  .then(data => renderAppSections(data.sections))
+  .catch(error => console.error('Error:', error));
 
-  // Set the title based on the selected category
-  sectionTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+// Render app sections dynamically
+function renderAppSections(sections) {
+  const appSections = document.getElementById('app-sections');
 
-  // Clear any previous apps
-  appGrid.innerHTML = "";
+  sections.forEach(section => {
+    // Create section container
+    const sectionDiv = document.createElement('div');
+    sectionDiv.classList.add('section');
 
-  // Fetch the appropriate JSON file based on category
-  fetch(`${category}.json`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`Failed to load ${category}.json`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Loop through the data and display each app in a card
-      data.forEach(app => {
-        const appCard = document.createElement("div");
-        appCard.className = "app-card";
+    // Add section title
+    const title = document.createElement('h2');
+    title.textContent = section.title;
+    sectionDiv.appendChild(title);
 
-        appCard.innerHTML = `
-          <img src="${app.image}" alt="${app.name}">
-          <h3>${app.name}</h3>
-          <p>${app.description}</p>
-        `;
+    // Add scrollable container
+    const scrollableContainer = document.createElement('div');
+    scrollableContainer.classList.add('scrollable-container');
 
-        appGrid.appendChild(appCard);
-      });
-    })
-    .catch(error => {
-      console.error("Error loading apps:", error);
-      appGrid.innerHTML = "<p>Failed to load apps. Please try again later.</p>";
+    // Add apps
+    section.apps.forEach(app => {
+      const appDiv = document.createElement('div');
+      appDiv.classList.add('app');
+
+      // Add app icon (from icons directory)
+      const img = document.createElement('img');
+      img.src = `icon/${app.name.toLowerCase().replace(/ /g, '-')}.png`;
+      img.alt = `${app.name} icon`;
+      img.classList.add('app-icon');
+
+      // Add app name
+      const appName = document.createElement('p');
+      appName.textContent = app.name;
+
+      appDiv.appendChild(img);
+      appDiv.appendChild(appName);
+      scrollableContainer.appendChild(appDiv);
     });
+
+    sectionDiv.appendChild(scrollableContainer);
+    appSections.appendChild(sectionDiv);
+  });
 }
-
-// Handle the click event for tab buttons
-function changeTab(tabName) {
-  // Remove the 'active' class from all buttons
-  const buttons = document.querySelectorAll(".nav-button");
-  buttons.forEach(button => button.classList.remove("active"));
-
-  // Add 'active' class to the clicked button
-  const activeButton = Array.from(buttons).find(button =>
-    button.textContent.trim().toLowerCase() === tabName
-  );
-  if (activeButton) activeButton.classList.add("active");
-
-  // Load apps based on the selected category
-  loadApps(tabName);
-}
-
-// Default tab loading on page load
-document.addEventListener("DOMContentLoaded", () => {
-  loadApps("games");  // Default tab is 'games'
-});
