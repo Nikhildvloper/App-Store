@@ -20,7 +20,7 @@ function renderAppSections(sections) {
     scrollableContainer.classList.add('scrollable-container');
 
     // Add apps
-    section.apps.forEach(app => {
+    section.items.forEach(app => {  // Fix: should be 'items' instead of 'apps'
       const appDiv = document.createElement('div');
       appDiv.classList.add('app');
 
@@ -73,6 +73,9 @@ window.addEventListener('DOMContentLoaded', () => {
   // Set default active section as Apps
   setActiveSection('apps-nav');
 
+  // Load apps from the 'apps' section initially when the page is loaded
+  loadAppsFromSection('apps');
+
   // Add event listeners to navigation items
   document.getElementById('apps-nav').addEventListener('click', () => {
     setActiveSection('apps-nav');
@@ -106,7 +109,7 @@ function loadAppsFromSection(section) {
       if (!response.ok) throw new Error(`Failed to load ${section}.json`);
       return response.json();
     })
-    .then(data => renderAppSections(data.sections))
+    .then(data => renderAppSections(data.sections))  // Make sure 'sections' is correct here
     .catch(error => console.error('Error:', error));
 }
 
