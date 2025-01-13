@@ -118,3 +118,17 @@ function loadAppsFromSection(section) {
     .then(data => renderAppSections(data.sections))
     .catch(error => console.error('Error:', error));
 }
+// Search functionality: Store the search term and redirect to search page
+document.getElementById('search-bar').addEventListener('keydown', function(event) {
+  // When 'Enter' is pressed
+  if (event.key === 'Enter') {
+    const searchTerm = event.target.value.trim();  // Get the search term
+    if (searchTerm) {
+      // Store the search term in local storage
+      localStorage.setItem('searchTerm', searchTerm);
+
+      // Redirect to search.html page
+      window.location.href = 'search.html';
+    }
+  }
+});
