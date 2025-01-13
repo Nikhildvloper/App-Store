@@ -60,7 +60,7 @@ body {
 
 /* Adjust gap specifically for the third section (Social networking) */
 .section:nth-child(4) .scrollable-container {
-  gap: 15px; /* Match the gap of the first two sections */
+  gap: 20px; /* Match the gap of the first two sections */
 }
 
 .app {
