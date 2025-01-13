@@ -1,12 +1,22 @@
-[
-  {
-    "name": "Game 1",
-    "description": "An exciting adventure game.",
-    "image": "https://via.placeholder.com/100"
-  },
-  {
-    "name": "Game 2",
-    "description": "A fun puzzle game.",
-    "image": "https://via.placeholder.com/100"
-  }
-]
+{
+  "sections": [
+    {
+      "title": "Popular Games",
+      "items": [
+        { "name": "PUBG Mobile" },
+        { "name": "Call of Duty" },
+        { "name": "Free Fire" },
+        { "name": "Candy Crush" }
+      ]
+    },
+    {
+      "title": "Top Strategy Games",
+      "items": [
+        { "name": "Clash of Clans" },
+        { "name": "Age of Empires" },
+        { "name": "Rise of Kingdoms" },
+        { "name": "Chess.com" }
+      ]
+    }
+  ]
+}
