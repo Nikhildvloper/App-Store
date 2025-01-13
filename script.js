@@ -137,3 +137,8 @@ document.getElementById('search-bar').addEventListener('keydown', function(event
     }
   }
 });
+
+// Remove the cursor when the user navigates back (or goes back in history)
+window.addEventListener('popstate', function() {
+  document.getElementById('search-bar').blur();  // Remove focus from the search bar
+});
