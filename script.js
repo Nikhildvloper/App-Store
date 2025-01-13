@@ -1,9 +1,15 @@
+// Fetch and render apps from apps.json
+fetch('./apps.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Failed to load apps.json');
+    return response.json();
+  })
+  .then(data => renderAppSections(data.sections))
+  .catch(error => console.error('Error:', error));
+
 // Render app sections dynamically
 function renderAppSections(sections) {
   const appSections = document.getElementById('app-sections');
-
-  // Clear existing sections before rendering new ones
-  appSections.innerHTML = '';
 
   sections.forEach(section => {
     // Create section container
@@ -20,7 +26,7 @@ function renderAppSections(sections) {
     scrollableContainer.classList.add('scrollable-container');
 
     // Add apps
-    section.items.forEach(app => {  // Fix: should be 'items' instead of 'apps'
+    section.items.forEach(app => {
       const appDiv = document.createElement('div');
       appDiv.classList.add('app');
 
@@ -51,7 +57,7 @@ function renderAppSections(sections) {
 
 // Open app page function
 function openAppPage(appName) {
-  // Redirect to app page in the apps folder
+  // Redirect to app page
   window.location.href = `apps/${appName}.html`;
 }
 
@@ -73,22 +79,10 @@ window.addEventListener('DOMContentLoaded', () => {
   // Set default active section as Apps
   setActiveSection('apps-nav');
 
-  // Load apps from the 'apps' section initially when the page is loaded
-  loadAppsFromSection('apps');
-
   // Add event listeners to navigation items
-  document.getElementById('apps-nav').addEventListener('click', () => {
-    setActiveSection('apps-nav');
-    loadAppsFromSection('apps');
-  });
-  document.getElementById('games-nav').addEventListener('click', () => {
-    setActiveSection('games-nav');
-    loadAppsFromSection('games');
-  });
-  document.getElementById('tools-nav').addEventListener('click', () => {
-    setActiveSection('tools-nav');
-    loadAppsFromSection('tools');
-  });
+  document.getElementById('apps-nav').addEventListener('click', () => setActiveSection('apps-nav'));
+  document.getElementById('games-nav').addEventListener('click', () => setActiveSection('games-nav'));
+  document.getElementById('tools-nav').addEventListener('click', () => setActiveSection('tools-nav'));
 });
 
 // Function to set the active section
@@ -100,17 +94,6 @@ function setActiveSection(sectionId) {
   // Add active class to the clicked section
   const activeNavItem = document.getElementById(sectionId);
   activeNavItem.classList.add('active');
-}
-
-// Function to load apps from the corresponding JSON based on the selected section
-function loadAppsFromSection(section) {
-  fetch(`./${section}.json`)
-    .then(response => {
-      if (!response.ok) throw new Error(`Failed to load ${section}.json`);
-      return response.json();
-    })
-    .then(data => renderAppSections(data.sections))  // Make sure 'sections' is correct here
-    .catch(error => console.error('Error:', error));
 }
 
 // Focus on the search bar when clicked
