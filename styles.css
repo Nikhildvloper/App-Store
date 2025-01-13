@@ -102,10 +102,10 @@ body {
   align-items: center;
   cursor: pointer;
   padding: 8px 12px;
-  width: 20%;
+  width: 25%;
   transition: all 0.3s ease;
   border-radius: 20px;
-  margin: 0 10px;
+  margin: 0 5%;
 }
 
 /* Default icon size and length for all sections */
@@ -116,7 +116,7 @@ body {
 
 /* Active Section Styles */
 .nav-item.active {
-  background-color: #2196f3; /* Light blue highlight */
+  background-color: #1d557d; /* Play Store active color */
   color: #ffffff;
 }
 
