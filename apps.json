@@ -4,28 +4,43 @@
       "title": "Editors' Choice apps",
       "apps": [
         { "name": "Snapchat" },
-        { "name": "Disney+ Hotstar" },
-        { "name": "Zomato: Food" },
-        { "name": "Messenger" },
-        { "name": "WhatsApp Messenger" }
+        { "name": "Zarchiver" },
+        { "name": "MX Player Video Player & OTT" },
+        { "name": "1DM+ Browser & Video Download" },
+        { "name": "Remini - AI Photo" },
+        { "name": "Brave Private Web Browser" }
       ]
     },
     {
-      "title": "Popular apps",
+      "title": "Mod apps",
       "apps": [
-        { "name": "Instagram Lite" },
-        { "name": "Facebook" },
-        { "name": "PhonePe UPI" },
-        { "name": "Meesho" }
+        { "name": "YouTube" },
+        { "name": "YouTube Music" },
+        { "name": "Google Photos" },
+        { "name": "MicroG" },
+        { "name": "Spotify Music and Podcasts" },
+        { "name": "X" },
+        { "name": "ZArchiver Donate" }
       ]
     },
     {
       "title": "Social networking",
       "apps": [
-        { "name": "Remini - AI Photo" },
-        { "name": "Facebook Lite" },
-        { "name": "ShareChat Trends" },
+        { "name": "WhatsApp Messenger" },
+        { "name": "Facebook" },
+        { "name": "Instagram" },
+        { "name": "LinkedIn" }
         { "name": "X" }
+      ]
+    },
+    {
+      "title": "Pc Applications",
+      "apps": [
+        { "name": "Visual Studio Code" },
+        { "name": "Python" },
+        { "name": "Du Meter" },
+        { "name": "Chrome" },
+        { "name": "VLC media player" }
       ]
     }
   ]
