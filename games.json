@@ -4,9 +4,13 @@
       "title": "Popular Games",
       "apps": [
         { "name": "PUBG Mobile" },
-        { "name": "Call of Duty" },
+        { "name": "Mini Militia" },
         { "name": "Free Fire" },
-        { "name": "Candy Crush" }
+        { "name": "Grand Theft Auto San Andreas" },
+        { "name": "Minecraft" },
+        { "name": "EDGE" },
+        { "name": "Hill Climb Racing" },
+        { "name": "Grand Theft Auto V" }
       ]
     },
     {
