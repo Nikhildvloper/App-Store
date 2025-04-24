@@ -1,11 +1,29 @@
 /* General Styles */
+:root {
+  --background-light: #ffffff;
+  --background-dark: #131313;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --header-light: #f1f1f1;
+  --header-dark: #1b1b1b;
+  --search-bg-light: #e0e0e0;
+  --search-bg-dark: #2c2c2c;
+  --nav-active-light: #d0e8f2;
+  --nav-active-dark: #1d557d;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #131313;
-  color: #ffffff;
+  background-color: var(--background-dark);
+  color: var(--text-dark);
   overflow-y: scroll;
   padding-top: 80px; /* Add padding to avoid content being hidden under the fixed header */
+}
+
+body.light-theme {
+  background-color: var(--background-light);
+  color: var(--text-light);
 }
 
 /* Header */
@@ -14,12 +32,16 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1b1b1b;
+  background-color: var(--header-dark);
   position: fixed; /* Fix the header at the top */
   top: 0; /* Ensure it's at the top */
   left: 0; /* Align it to the left */
   right: 0; /* Align it to the right */
   z-index: 10; /* Ensure it's on top of other elements */
+}
+
+body.light-theme .header {
+  background-color: var(--header-light);
 }
 
 .header h1 {
@@ -30,30 +52,46 @@ body {
 .search-container {
   display: flex;
   align-items: center;
-  background-color: #2c2c2c;
+  background-color: var(--search-bg-dark);
   border-radius: 20px;
   padding: 5px 10px;
+}
+
+body.light-theme .search-container {
+  background-color: var(--search-bg-light);
 }
 
 .search-bar {
   background: transparent;
   border: none;
   outline: none;
-  color: #fff;
+  color: var(--text-dark);
   font-size: 16px;
   padding: 5px;
   width: 200px;
   margin-right: 10px;
 }
 
+body.light-theme .search-bar {
+  color: var(--text-light);
+}
+
 .search-bar::placeholder {
   color: #b3b3b3;
+}
+
+body.light-theme .search-bar::placeholder {
+  color: #666666;
 }
 
 .search-icon {
   font-size: 24px;
   color: #b3b3b3;
   cursor: pointer;
+}
+
+body.light-theme .search-icon {
+  color: #666666;
 }
 
 /* Sections */
@@ -91,6 +129,11 @@ body {
   margin-top: 0px;
   color: #cfcfcf;
 }
+
+body.light-theme .app p {
+  color: #333333;
+}
+
 /* App Icons (Images) */
 .app-icon {
   width: 75px;
@@ -104,18 +147,23 @@ body {
   height: 80px; /* Adjust height as needed to avoid overlapping */
   background-color: transparent; /* Keep it empty and transparent */
 }
+
 /* Bottom Navigation */
 .bottom-navigation {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #1b1b1b;
+  background-color: var(--header-dark);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 10px 0;
   border-top: 1px solid #333;
+}
+
+body.light-theme .bottom-navigation {
+  background-color: var(--header-light);
 }
 
 .nav-item {
@@ -133,18 +181,30 @@ body {
   margin: 0 5%;
 }
 
+body.light-theme .nav-item {
+  color: #333333;
+}
+
 /* Default icon size and length for all sections */
 .nav-item .nav-icon {
   font-size: 28px;
   transition: color 0.3s ease;
 }
 
-/* Active Section Styles */
 .nav-item.active {
-  background-color: #1d557d; /* Play Store active color */
-  color: #ffffff;
+  background-color: var(--nav-active-dark); /* Play Store active color */
+  color: var(--text-dark);
+}
+
+body.light-theme .nav-item.active {
+  background-color: var(--nav-active-light);
+  color: var(--text-light);
 }
 
 .nav-item.active .nav-icon {
-  color: #ffffff;
+  color: var(--text-dark);
+}
+
+body.light-theme .nav-item.active .nav-icon {
+  color: var(--text-light);
 }
