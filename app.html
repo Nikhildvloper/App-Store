@@ -44,16 +44,16 @@
     </div>
 
     <script>
-        // Fetch app name from local storage
-        const appName = localStorage.getItem('appName');
+        // Fetch the selected app name from local storage
+        const appName = localStorage.getItem('selectedApp');
         
         if (appName) {
-            // Dynamically set the app icon source based on the app name
+            // Dynamically set the app icon source based on the selected app name
             const appIcon = document.getElementById('app-icon');
             appIcon.src = `icons/${appName}.png`; // Assumes icons are stored in a folder named 'icons'
             appIcon.alt = `${appName} Icon`;
         } else {
-            console.error('App name not found in local storage.');
+            console.error('Selected app name not found in local storage.');
         }
 
         // Function to handle app download
@@ -61,7 +61,7 @@
             if (appName) {
                 window.location.href = `downloads/${appName}.apk`; // Assumes APKs are stored in a folder named 'downloads'
             } else {
-                alert('App name is not set. Unable to download.');
+                alert('Selected app name is not set. Unable to download.');
             }
         }
     </script>
