@@ -60,8 +60,10 @@ function renderAppSections(sections) {
 
 // Open app page function
 function openAppPage(appName) {
-  // Redirect to app page in the apps folder
-  window.location.href = `apps/${appName}.html`;
+  // Save the app name to local storage
+  localStorage.setItem('selectedApp', appName);
+  // Redirect to app.html
+  window.location.href = 'app.html';
 }
 
 // Disable text selection and clicks triggering search popups
@@ -118,6 +120,7 @@ function loadAppsFromSection(section) {
     .then(data => renderAppSections(data.sections))
     .catch(error => console.error('Error:', error));
 }
+
 // Focus on the search bar when clicked
 document.getElementById('search-bar').addEventListener('click', function() {
   this.focus(); // Focus the input when it's clicked
