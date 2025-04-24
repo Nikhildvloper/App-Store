@@ -97,6 +97,10 @@ window.addEventListener('DOMContentLoaded', () => {
     setActiveSection('tools-nav');
     loadAppsFromSection('tools');
   });
+
+  // Apply theme based on the system's preference
+  applyTheme();
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', applyTheme);
 });
 
 // Function to set the active section
@@ -146,3 +150,9 @@ document.getElementById('search-bar').addEventListener('keydown', function(event
 window.addEventListener('popstate', function() {
   document.getElementById('search-bar').blur();  // Remove focus from the search bar
 });
+
+// Function to apply theme dynamically based on system preference
+function applyTheme() {
+  const isLightTheme = window.matchMedia('(prefers-color-scheme: light)').matches;
+  document.body.classList.toggle('light-theme', isLightTheme);
+}
