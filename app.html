@@ -6,40 +6,57 @@
     <title>App Page</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f9;
+            background-color: #f8f9fa; /* Light background color for better contrast */
+            color: #333; /* Dark text for readability */
         }
         .app-container {
             text-align: center;
+            background: #ffffff; /* White card background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            max-width: 400px;
+            width: 90%;
         }
         .app-icon {
-            width: 150px;
-            height: 150px;
+            width: 100px; /* Smaller icon size */
+            height: 100px;
             margin-bottom: 20px;
+            border-radius: 10px; /* Rounded corners for the icon */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        .app-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
         .download-btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 16px;
-            background-color: #007bff;
+            font-weight: bold;
+            background-color: #007bff; /* Blue button */
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .download-btn:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Darker blue on hover */
         }
     </style>
 </head>
 <body>
     <div class="app-container">
         <img id="app-icon" class="app-icon" src="" alt="App Icon">
+        <p id="app-name" class="app-name"></p>
         <button class="download-btn" onclick="downloadApp()">Download</button>
     </div>
 
@@ -48,10 +65,12 @@
         const appName = localStorage.getItem('selectedApp');
         
         if (appName) {
-            // Dynamically set the app icon source based on the selected app name
+            // Dynamically set the app icon source and update the app name
             const appIcon = document.getElementById('app-icon');
-            appIcon.src = `icon/${appName}.png`; // Assumes icons are stored in a folder named 'icons'
+            const appNameElement = document.getElementById('app-name');
+            appIcon.src = `icons/${appName}.png`; // Assumes icons are stored in a folder named 'icons'
             appIcon.alt = `${appName} Icon`;
+            appNameElement.textContent = appName; // Display the app name
         } else {
             console.error('Selected app name not found in local storage.');
         }
