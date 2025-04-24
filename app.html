@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .app-container {
+            text-align: center;
+        }
+        .app-icon {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .download-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <img id="app-icon" class="app-icon" src="" alt="App Icon">
+        <button class="download-btn" onclick="downloadApp()">Download</button>
+    </div>
+
+    <script>
+        // Fetch app name from local storage
+        const appName = localStorage.getItem('appName');
+        
+        if (appName) {
+            // Dynamically set the app icon source based on the app name
+            const appIcon = document.getElementById('app-icon');
+            appIcon.src = `icons/${appName}.png`; // Assumes icons are stored in a folder named 'icons'
+            appIcon.alt = `${appName} Icon`;
+        } else {
+            console.error('App name not found in local storage.');
+        }
+
+        // Function to handle app download
+        function downloadApp() {
+            if (appName) {
+                window.location.href = `downloads/${appName}.apk`; // Assumes APKs are stored in a folder named 'downloads'
+            } else {
+                alert('App name is not set. Unable to download.');
+            }
+        }
+    </script>
+</body>
+</html>
