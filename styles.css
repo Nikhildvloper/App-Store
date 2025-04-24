@@ -122,20 +122,6 @@ body.light-theme .search-icon {
   text-align: center;
   flex: 0 0 auto; /* Prevent apps from shrinking */
   width: 80px;
-  background: var(--background-light); /* Light background for app cards */
-  padding: 10px;
-  border-radius: 10px; /* Rounded corners for the app container */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-body.light-theme .app {
-  background: var(--background-light);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect in light theme */
-}
-
-body .app {
-  background: var(--header-dark);
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Shadow effect in dark theme */
 }
 
 .app p {
@@ -155,7 +141,7 @@ body.light-theme .app p {
   border-radius: 15px;
   object-fit: cover;
   margin: 0 auto;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for app icons */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect for app icons */
 }
 
 .spacer-container {
